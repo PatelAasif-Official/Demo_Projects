@@ -1,0 +1,81 @@
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/past/builtins/misc.py:45: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  from imp import reload
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/bleach_whitelist/bleach_whitelist.py:3: DeprecationWarning: bleach-whitelist has been renamed bleach-allowlist. It will not receive further updates under the old name. See https://pypi.org/project/bleach-allowlist
+  warnings.warn(
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/past/builtins/misc.py:45: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  from imp import reload
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/bleach_whitelist/bleach_whitelist.py:3: DeprecationWarning: bleach-whitelist has been renamed bleach-allowlist. It will not receive further updates under the old name. See https://pypi.org/project/bleach-allowlist
+  warnings.warn(
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/past/builtins/misc.py:45: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  from imp import reload
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/bleach_whitelist/bleach_whitelist.py:3: DeprecationWarning: bleach-whitelist has been renamed bleach-allowlist. It will not receive further updates under the old name. See https://pypi.org/project/bleach-allowlist
+  warnings.warn(
+18:24:20 Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/rq/worker.py", line 1013, in perform_job
+    rv = job.perform()
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/rq/job.py", line 709, in perform
+    self._result = self._execute()
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/rq/job.py", line 732, in _execute
+    result = self.func(*self.args, **self.kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/background_jobs.py", line 104, in execute_job
+    method(**kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/core/doctype/user/user.py", line 997, in create_contact
+    contact.insert(ignore_permissions=True, ignore_links=ignore_links, ignore_mandatory=ignore_mandatory)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 232, in insert
+    self._validate_links()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 828, in _validate_links
+    frappe.throw(_("Could not find {0}").format(msg),
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 438, in throw
+    msgprint(msg, raise_exception=exc, title=title, indicator='red', is_minimizable=is_minimizable, wide=wide, as_list=as_list)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 417, in msgprint
+    _raise_exception()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 371, in _raise_exception
+    raise raise_exception(msg)
+frappe.exceptions.LinkValidationError: Could not find User Id: patelasif52@gmail.com
+
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/client.py", line 3718, in run
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/threading.py", line 932, in _bootstrap_inner
+    self.run()
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/client.py", line 3718, in run
+    pubsub.get_message(ignore_subscribe_messages=True,
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/client.py", line 3617, in get_message
+    pubsub.get_message(ignore_subscribe_messages=True,
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/client.py", line 3617, in get_message
+    response = self.parse_response(block=False, timeout=timeout)
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/client.py", line 3503, in parse_response
+    response = self.parse_response(block=False, timeout=timeout)
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/client.py", line 3503, in parse_response
+    if not block and not conn.can_read(timeout=timeout):
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/connection.py", line 734, in can_read
+    if not block and not conn.can_read(timeout=timeout):
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/connection.py", line 734, in can_read
+        return self._parser.can_read(timeout)return self._parser.can_read(timeout)
+
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/connection.py", line 416, in can_read
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/connection.py", line 416, in can_read
+    return self.read_from_socket(timeout=timeout,
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/connection.py", line 429, in read_from_socket
+    return self.read_from_socket(timeout=timeout,
+  File "/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/redis/connection.py", line 429, in read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/past/builtins/misc.py:45: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  from imp import reload
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/bleach_whitelist/bleach_whitelist.py:3: DeprecationWarning: bleach-whitelist has been renamed bleach-allowlist. It will not receive further updates under the old name. See https://pypi.org/project/bleach-allowlist
+  warnings.warn(
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/past/builtins/misc.py:45: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  from imp import reload
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/past/builtins/misc.py:45: DeprecationWarning: the imp module is deprecated in favour of importlib; see the module's documentation for alternative uses
+  from imp import reload
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/bleach_whitelist/bleach_whitelist.py:3: DeprecationWarning: bleach-whitelist has been renamed bleach-allowlist. It will not receive further updates under the old name. See https://pypi.org/project/bleach-allowlist
+  warnings.warn(
+/home/user/erpnext-pro/erp-next/env/lib/python3.8/site-packages/bleach_whitelist/bleach_whitelist.py:3: DeprecationWarning: bleach-whitelist has been renamed bleach-allowlist. It will not receive further updates under the old name. See https://pypi.org/project/bleach-allowlist
+  warnings.warn(

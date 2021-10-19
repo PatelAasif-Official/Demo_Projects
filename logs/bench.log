@@ -1,0 +1,44 @@
+2021-10-18 17:52:41,733 DEBUG cd erp-next && /usr/bin/virtualenv -q env -p python3
+2021-10-18 17:52:42,180 LOG Getting app frappe
+2021-10-18 17:52:42,181 DEBUG cd erp-next/apps && git clone https://github.com/frappe/frappe.git --branch version-13 --depth 1 --origin upstream
+2021-10-18 17:53:14,112 LOG installing frappe
+2021-10-18 17:53:14,112 DEBUG erp-next/env/bin/python -m pip install -q -U -e erp-next/apps/frappe 
+2021-10-18 17:54:02,319 DEBUG cd erp-next/apps/frappe && yarn install
+2021-10-18 17:54:48,371 DEBUG cd erp-next/apps/frappe && yarn install
+2021-10-18 17:54:55,947 DEBUG cd erp-next && bench build
+2021-10-18 17:54:56,133 INFO /usr/local/bin/bench build
+2021-10-18 17:55:08,864 LOG setting up backups
+2021-10-18 17:55:08,878 INFO Bench erp-next initialized
+2021-10-18 17:55:33,352 INFO /usr/local/bin/bench version
+2021-10-18 17:56:45,019 INFO /usr/local/bin/bench get-app erpnext --branch version-13
+2021-10-18 17:56:46,440 LOG Getting app erpnext
+2021-10-18 17:56:46,440 DEBUG cd ./apps && git clone https://github.com/frappe/erpnext --branch version-13 --depth 1 --origin upstream
+2021-10-18 17:57:33,578 LOG installing erpnext
+2021-10-18 17:57:33,578 DEBUG ./env/bin/python -m pip install -q -U -e ./apps/erpnext 
+2021-10-18 17:58:18,038 DEBUG cd ./apps/erpnext && yarn install
+2021-10-18 17:58:18,862 DEBUG bench build --app erpnext
+2021-10-18 17:58:19,049 INFO /usr/local/bin/bench build --app erpnext
+2021-10-18 17:58:57,787 INFO /usr/local/bin/bench version
+2021-10-18 17:59:44,743 INFO /usr/local/bin/bench new-site erpnext.test
+2021-10-18 18:00:01,969 INFO /usr/local/bin/bench --verbose --site all backup
+2021-10-18 18:01:17,286 INFO /usr/local/bin/bench --site erpnext.test install-app erpnext
+2021-10-18 18:04:36,611 INFO /usr/local/bin/bench --site erpnext.test add-to-hosts
+2021-10-18 18:04:53,940 INFO /usr/local/bin/bench start
+2021-10-18 18:04:54,921 INFO /usr/local/bin/bench serve --port 8000
+2021-10-18 18:04:54,923 INFO /usr/local/bin/bench worker --queue short
+2021-10-18 18:04:54,968 INFO /usr/local/bin/bench watch
+2021-10-18 18:04:55,052 INFO /usr/local/bin/bench worker --queue default
+2021-10-18 18:04:55,103 INFO /usr/local/bin/bench schedule
+2021-10-18 18:04:55,123 INFO /usr/local/bin/bench worker --queue long
+2021-10-19 10:19:54,507 INFO /usr/local/bin/bench find
+2021-10-19 10:20:13,625 INFO /usr/local/bin/bench start
+2021-10-19 10:20:14,563 INFO /usr/local/bin/bench worker --queue long
+2021-10-19 10:20:14,599 INFO /usr/local/bin/bench watch
+2021-10-19 10:20:14,648 INFO /usr/local/bin/bench worker --queue short
+2021-10-19 10:20:14,743 INFO /usr/local/bin/bench serve --port 8000
+2021-10-19 10:20:14,747 INFO /usr/local/bin/bench worker --queue default
+2021-10-19 10:20:14,833 INFO /usr/local/bin/bench schedule
+2021-10-19 12:00:02,125 INFO /usr/local/bin/bench --verbose --site all backup
+2021-10-19 12:29:24,961 INFO /usr/local/bin/bench vwesion
+2021-10-19 12:29:25,233 WARNING /usr/local/bin/bench vwesion executed with exit code 2
+2021-10-19 12:29:33,370 INFO /usr/local/bin/bench version

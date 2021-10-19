@@ -1,0 +1,3 @@
+2021-10-19 11:51:24,601 ERROR frappe New Exception collected with id: 2021-10-19 11:51:24.510830-127.0.0.1-887
+Site: erpnext.test
+Form Dict: {'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'rating': '9', 'feedback': 'hi', 'cmd': 'frappe.templates.includes.feedback.feedback.add_feedback'}
