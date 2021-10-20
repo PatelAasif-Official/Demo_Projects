@@ -42,3 +42,20 @@
 2021-10-19 12:29:24,961 INFO /usr/local/bin/bench vwesion
 2021-10-19 12:29:25,233 WARNING /usr/local/bin/bench vwesion executed with exit code 2
 2021-10-19 12:29:33,370 INFO /usr/local/bin/bench version
+2021-10-19 18:00:01,226 INFO /usr/local/bin/bench --verbose --site all backup
+2021-10-20 10:52:39,434 INFO /usr/local/bin/bench start
+2021-10-20 10:52:40,616 INFO /usr/local/bin/bench serve --port 8000
+2021-10-20 10:52:40,617 INFO /usr/local/bin/bench watch
+2021-10-20 10:52:40,635 INFO /usr/local/bin/bench worker --queue short
+2021-10-20 10:52:40,660 INFO /usr/local/bin/bench worker --queue default
+2021-10-20 10:52:40,666 INFO /usr/local/bin/bench worker --queue long
+2021-10-20 10:52:40,711 INFO /usr/local/bin/bench schedule
+2021-10-20 11:02:33,400 INFO /usr/local/bin/bench --site erpnext.test reinstall
+2021-10-20 11:41:58,696 INFO /usr/local/bin/bench start
+2021-10-20 11:41:59,788 INFO /usr/local/bin/bench schedule
+2021-10-20 11:41:59,794 INFO /usr/local/bin/bench serve --port 8000
+2021-10-20 11:41:59,878 INFO /usr/local/bin/bench worker --queue short
+2021-10-20 11:41:59,960 INFO /usr/local/bin/bench watch
+2021-10-20 11:41:59,962 INFO /usr/local/bin/bench worker --queue long
+2021-10-20 11:42:00,042 INFO /usr/local/bin/bench worker --queue default
+2021-10-20 12:00:01,778 INFO /usr/local/bin/bench --verbose --site all backup

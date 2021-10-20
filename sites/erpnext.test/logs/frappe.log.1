@@ -1,0 +1,1251 @@
+2021-10-19 11:51:24,601 ERROR frappe New Exception collected with id: 2021-10-19 11:51:24.510830-127.0.0.1-887
+Site: erpnext.test
+Form Dict: {'reference_doctype': 'Blog Post', 'reference_name': 'welcome', 'rating': '9', 'feedback': 'hi', 'cmd': 'frappe.templates.includes.feedback.feedback.add_feedback'}
+2021-10-20 11:02:52,260 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Custom Field"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,363 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Property Setter"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,405 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","User"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,578 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Web Form"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,650 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Web Template"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,774 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Web Form Field"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,893 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Portal Menu Item"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:52,956 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Data Migration Mapping Detail"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,133 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Data Migration Mapping"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,215 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Data Migration Plan Mapping"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,252 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Data Migration Plan"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,520 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Number Card"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,712 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Dashboard Chart"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,717 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Dashboard"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,836 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Onboarding Permission"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'
+2021-10-20 11:02:53,886 ERROR frappe Could not take error snapshot: 'User' object has no attribute 'docstatus'
+Site: erpnext.test
+Form Dict: {'doctype': 'DocType', 'fields': '["`tabDocType`.`name`","`tabDocType`.`owner`","`tabDocType`.`creation`","`tabDocType`.`modified`","`tabDocType`.`modified_by`","`tabDocType`.`_user_tags`","`tabDocType`.`_comments`","`tabDocType`.`_assign`","`tabDocType`.`_liked_by`","`tabDocType`.`docstatus`","`tabDocType`.`parent`","`tabDocType`.`parenttype`","`tabDocType`.`parentfield`","`tabDocType`.`idx`","`tabDocType`.`module`","`tabDocType`.`color`"]', 'filters': '[["DocType","name","=","Onboarding Step"]]', 'order_by': '`tabDocType`.`modified` desc', 'start': '0', 'page_length': '100', 'view': 'List', 'with_comment_count': 'true'}
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 54, in application
+    init_request(request)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/app.py", line 128, in init_request
+    frappe.local.http_request = frappe.auth.HTTPRequest()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 32, in __init__
+    self.set_session()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 69, in set_session
+    frappe.local.login_manager = LoginManager()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 122, in __init__
+    self.make_session(resume=True)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 205, in make_session
+    frappe.local.session_obj = Session(user=self.user, resume=resume,
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 189, in __init__
+    self.resume()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/sessions.py", line 255, in resume
+    validate_ip_address(self.user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/auth.py", line 390, in validate_ip_address
+    user = frappe.get_cached_doc("User", user) if not frappe.flags.in_test else frappe.get_doc("User", user)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 834, in get_cached_doc
+    doc = get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 877, in get_doc
+    doc = frappe.model.document.get_doc(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 75, in get_doc
+    return controller(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 113, in __init__
+    self.load_from_db()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 142, in load_from_db
+    if not getattr(self, "_metaclass", False) and self.meta.issingle:
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/base_document.py", line 91, in meta
+    self._meta = frappe.get_meta(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 908, in get_meta
+    return frappe.model.meta.get_meta(doctype, cached=cached)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 37, in get_meta
+    meta = Meta(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 84, in __init__
+    self.process()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 105, in process
+    self.set_custom_permissions()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 419, in set_custom_permissions
+    custom_perms = frappe.get_all('Custom DocPerm', fields='*',
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1460, in get_all
+    return get_list(doctype, *args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/__init__.py", line 1433, in get_list
+    return frappe.model.db_query.DatabaseQuery(doctype).execute(*args, **kwargs)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 102, in execute
+    self.columns = self.get_table_columns()
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/db_query.py", line 339, in get_table_columns
+    return get_table_columns(self.doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/meta.py", line 49, in get_table_columns
+    return frappe.db.get_table_columns(doctype)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/database/database.py", line 895, in get_table_columns
+    raise self.TableMissingError('DocType', doctype)
+pymysql.err.ProgrammingError: ('DocType', 'Custom DocPerm')
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 36, in make_error_snapshot
+    snapshot = get_snapshot(exception)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in get_snapshot
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/inspect.py", line 1296, in formatargvalues
+    specs.append(convert(args[i]))
+  File "/usr/lib/python3.8/inspect.py", line 1293, in convert
+    return formatarg(name) + formatvalue(locals[name])
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/utils/error.py", line 81, in <lambda>
+    call = inspect.formatargvalues(args, varargs, varkw, locals, formatvalue=lambda value: '={}'.format(pydoc.text.repr(value)))
+  File "/usr/lib/python3.8/reprlib.py", line 52, in repr
+    return self.repr1(x, self.maxlevel)
+  File "/usr/lib/python3.8/pydoc.py", line 1054, in repr1
+    return cram(stripid(repr(x)), self.maxother)
+  File "/home/user/erpnext-pro/erp-next/apps/frappe/frappe/model/document.py", line 1365, in __repr__
+    docstatus = f" docstatus={self.docstatus}" if self.docstatus else ""
+AttributeError: 'User' object has no attribute 'docstatus'

@@ -10,3 +10,15 @@ Backup Summary for erpnext.test at 2021-10-19 12:00:05.266306
 Config  : ./erpnext.test/private/backups/20211019_120002-erpnext_test-site_config_backup.json 158.0B
 Database: ./erpnext.test/private/backups/20211019_120002-erpnext_test-database.sql.gz         1.8MiB
 Backup for Site erpnext.test has been successfully completed
+mysqldump --single-transaction --quick --lock-tables=false -u _436e21443a3d1549 -p0BvJvXaLxeX3oExh _436e21443a3d1549 -h 127.0.0.1 -P 3306   | /usr/bin/gzip >> ./erpnext.test/private/backups/20211019_180001-erpnext_test-database.sql.gz
+
+Backup Summary for erpnext.test at 2021-10-19 18:00:04.703516
+Config  : ./erpnext.test/private/backups/20211019_180001-erpnext_test-site_config_backup.json 158.0B
+Database: ./erpnext.test/private/backups/20211019_180001-erpnext_test-database.sql.gz         1.8MiB
+Backup for Site erpnext.test has been successfully completed
+mysqldump --single-transaction --quick --lock-tables=false -u _436e21443a3d1549 -p0BvJvXaLxeX3oExh _436e21443a3d1549 -h 127.0.0.1 -P 3306   | /usr/bin/gzip >> ./erpnext.test/private/backups/20211020_120002-erpnext_test-database.sql.gz
+
+Backup Summary for erpnext.test at 2021-10-20 12:00:05.378802
+Config  : ./erpnext.test/private/backups/20211020_120002-erpnext_test-site_config_backup.json 158.0B
+Database: ./erpnext.test/private/backups/20211020_120002-erpnext_test-database.sql.gz         1.8MiB
+Backup for Site erpnext.test has been successfully completed
