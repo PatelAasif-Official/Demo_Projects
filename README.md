@@ -2,3 +2,4 @@
 #New Indictrans Tech
 Demo and Assignments on ERPNext
 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
+other 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
